@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">בטי</string>
+    <string name="action_example">פעולה לדוגמא</string>
+    <string name="action_settings">הגדרות</string>
+    <string name="action_sign_in">הכנס לחשבון</string>
+    <string name="action_sign_in_short">כניסה לחשבון</string>
+    <string name="error_field_required">שדה חובה</string>
+    <string name="error_incorrect_password">סיסמא אינה נכונה</string>
+    <string name="error_invalid_email">כתובת מייל לא תקנית</string>
+    <string name="error_invalid_password">סיסמא קצרה מדי</string>
+    <string name="navigation_drawer_close">סגור מגירת ניווט</string>
+    <string name="navigation_drawer_open">פתח מגירת ניווט</string>
+    <string name="plus_disconnect">התנתק</string>
+    <string name="plus_sign_out">החלף חשבון</string>
+    <string name="prompt_email">מייל</string>
+    <string name="prompt_password">סיסמא (אופציונלי)</string>
+    <string name="title_activity_login">כניסה לחשבון</string>
+    <string name="title_activity_main">פעולה ראשית</string>
+    <string name="title_section1">אזור 1</string>
+    <string name="title_section2">אזור 2</string>
+    <string name="title_section3">אזור 3</string>
+</resources>

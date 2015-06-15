@@ -7,6 +7,7 @@ import android.annotation.TargetApi;
 import android.app.LoaderManager.LoaderCallbacks;
 import android.content.ContentResolver;
 import android.content.CursorLoader;
+import android.content.Intent;
 import android.content.Loader;
 import android.database.Cursor;
 import android.net.Uri;
@@ -25,10 +26,12 @@ import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GooglePlayServicesUtil;
 import com.google.android.gms.common.SignInButton;
+import com.google.android.gms.plus.Plus;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -175,6 +178,7 @@ public class LoginActivity extends PlusBaseActivity implements LoaderCallbacks<C
     }
 
     private boolean isEmailValid(String email) {
+        //TODO: Replace this with your own logic
         return email.contains("@");
     }
 
@@ -236,6 +240,12 @@ public class LoginActivity extends PlusBaseActivity implements LoaderCallbacks<C
                 revokeAccess();
             }
         });
+
+        String email = Plus.AccountApi.getAccountName(getGoogleApiClient());
+        Toast.makeText(getApplicationContext(), "Connected As " + email, Toast.LENGTH_SHORT).show();
+
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
     }
 
     @Override
@@ -246,11 +256,11 @@ public class LoginActivity extends PlusBaseActivity implements LoaderCallbacks<C
     @Override
     protected void updateConnectButtonState() {
         //TODO: Update this logic to also handle the user logged in by email.
-        boolean connected = getPlusClient().isConnected();
+        boolean connected = getGoogleApiClient().isConnected();
 
-        mSignOutButtons.setVisibility(connected ? View.VISIBLE : View.GONE);
+        //mSignOutButtons.setVisibility(connected ? View.VISIBLE : View.GONE);
         mPlusSignInButton.setVisibility(connected ? View.GONE : View.VISIBLE);
-        mEmailLoginFormView.setVisibility(connected ? View.GONE : View.VISIBLE);
+        //mEmailLoginFormView.setVisibility(connected ? View.GONE : View.VISIBLE);
     }
 
     @Override
