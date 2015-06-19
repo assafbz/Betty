@@ -1,5 +1,6 @@
 package com.dev.assafbz.betty;
 
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.app.Activity;
 import android.support.v7.app.ActionBar;
@@ -248,8 +249,9 @@ public class NavigationDrawerFragment extends Fragment {
             return true;
         }
 
-        if (item.getItemId() == R.id.action_example) {
-            Toast.makeText(getActivity(), "Example action.", Toast.LENGTH_SHORT).show();
+        if (item.getItemId() == R.id.action_edit_competition) {
+            Intent intent = new Intent(this.getActivity(), EditCompetitionActivity.class);
+            startActivity(intent);
             return true;
         }
 

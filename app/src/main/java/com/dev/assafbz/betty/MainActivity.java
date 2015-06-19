@@ -149,6 +149,12 @@ implements NavigationDrawerFragment.NavigationDrawerCallbacks {
             ((MainActivity) activity).onSectionAttached(
                     getArguments().getInt(ARG_SECTION_NUMBER));
         }
+
+        @Override
+        public void onResume() {
+            LoginManager.CheckLogin((this.getActivity()));
+            super.onResume();
+        }
     }
 
 }

@@ -23,4 +23,8 @@
     <string name="error_invalid_password">סיסמא קצרה מדי</string>
     <string name="error_incorrect_password">סיסמא לא נכונה</string>
     <string name="error_field_required">ששדה חובה</string>
+    <string name="title_activity_edit_competition">ערוך תחרות</string>
+    <string name="competiton_default_name">תחרות 1</string>
+    <string name="competition_name_label">שם  תחרות:</string>
+    <string name="competition_save_btn">שמור</string>
 </resources>

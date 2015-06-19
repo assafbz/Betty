@@ -243,8 +243,12 @@ public class LoginActivity extends PlusBaseActivity implements LoaderCallbacks<C
             }
         });
 
+
+
         String email = Plus.AccountApi.getAccountName(getGoogleApiClient());
         Toast.makeText(getApplicationContext(), "Connected As " + email, Toast.LENGTH_SHORT).show();
+
+        LoginManager.SaveLogin(this);
 
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);

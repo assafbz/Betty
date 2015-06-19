@@ -13,4 +13,10 @@
 
     <string name="action_settings">Settings</string>
     <string name="action_add_competition" >Add Competition</string>
+    <string name="title_activity_edit_competition">EditCompetitionActivity</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="competiton_default_name">Competition Name 1</string>
+    <string name="competition_name_label">Competition Name:</string>
+    <string name="competition_save_btn">Save</string>
 </resources>
