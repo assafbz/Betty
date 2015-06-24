@@ -15,14 +15,15 @@ import com.google.api.client.googleapis.services.GoogleClientRequestInitializer;
 import java.io.IOException;
 
 /**
- * Created by assaf_000 on 18/06/2015.
+ * Created by assafbz on 18/06/2015.
  */
 class SaveCompetitionAsyncTask extends AsyncTask<Pair<Context, Competition>, Void, String> {
     private static CompetitionApi competitionApiService = null;
     private Context context;
 
+    @SafeVarargs
     @Override
-    protected String doInBackground(Pair<Context, Competition>... params) {
+    protected final String doInBackground(Pair<Context, Competition>... params) {
         if(competitionApiService == null) {  // Only do this once
             CompetitionApi.Builder builder = new CompetitionApi.Builder(AndroidHttp.newCompatibleTransport(),
                     new AndroidJsonFactory(), null)

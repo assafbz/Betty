@@ -142,7 +142,7 @@ public class CompetitionEndpoint {
             query = query.startAt(Cursor.fromWebSafeString(cursor));
         }
         QueryResultIterator<Competition> queryIterator = query.iterator();
-        List<Competition> competitionList = new ArrayList<Competition>(limit);
+        List<Competition> competitionList = new ArrayList<>(limit);
         while (queryIterator.hasNext()) {
             competitionList.add(queryIterator.next());
         }

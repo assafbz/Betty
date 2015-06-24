@@ -14,7 +14,7 @@ public class Competition {
     }
 
     @Id
-    Long id;
+    private Long id;
 
     public String getCompetitionName() {
         return competitionName;

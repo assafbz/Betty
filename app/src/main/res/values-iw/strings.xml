@@ -27,4 +27,11 @@
     <string name="competiton_default_name">תחרות 1</string>
     <string name="competition_name_label">שם  תחרות:</string>
     <string name="competition_save_btn">שמור</string>
+    <string name="competitionNameHint">שם תחרות</string>
+    <string name="IsCompetitionActive">Is Active</string>
+    <string name="CompetitionEndDate">End Date:</string>
+    <string name="Administrator">Administrator</string>
+    <string name="competitioEndDateHint">End Date</string>
+    <string name="competitionEndTimeHint">End Time</string>
+    <string name="hello_world">שלום עולם</string>
 </resources>

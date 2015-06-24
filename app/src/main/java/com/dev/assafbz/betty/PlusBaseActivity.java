@@ -30,7 +30,7 @@ public abstract class PlusBaseActivity extends Activity
     private boolean mAutoResolveOnFail;
 
     // A flag to track when a connection is already in progress
-    public boolean mPlusClientIsConnecting = false;
+    private boolean mPlusClientIsConnecting = false;
 
     // This is the helper object that connects to Google Play Services.
     private GoogleApiClient mGoogleApiClient;
@@ -40,32 +40,19 @@ public abstract class PlusBaseActivity extends Activity
     // If this IS null, then the connect method is still running.
     private ConnectionResult mConnectionResult;
 
-    /**
-     * Called when the {@link PlusClient} revokes access to this app.
-     */
+
     protected abstract void onPlusClientRevokeAccess();
 
-    /**
-     * Called when the PlusClient is successfully connected.
-     */
+
     protected abstract void onPlusClientSignIn();
 
-    /**
-     * Called when the {@link PlusClient} is disconnected.
-     */
+
     protected abstract void onPlusClientSignOut();
 
-    /**
-     * Called when the {@link PlusClient} is blocking the UI.  If you have a progress bar widget,
-     * this tells you when to show or hide it.
-     */
+
     protected abstract void onPlusClientBlockingUI(boolean show);
 
-    /**
-     * Called when there is a change in connection state.  If you have "Sign in"/ "Connect",
-     * "Sign out"/ "Disconnect", or "Revoke access" buttons, this lets you know when their states
-     * need to be updated.
-     */
+
     protected abstract void updateConnectButtonState();
 
     @Override
@@ -107,21 +94,14 @@ public abstract class PlusBaseActivity extends Activity
         updateConnectButtonState();
     }
 
-    /**
-     * Connect the {@link PlusClient} only if a connection isn't already in progress.  This will
-     * call back to {@link #onConnected(android.os.Bundle)} or
-     * {@link #onConnectionFailed(com.google.android.gms.common.ConnectionResult)}.
-     */
+
     private void initiatePlusClientConnect() {
         if (!mGoogleApiClient.isConnected() && !mGoogleApiClient.isConnecting()) {
             mGoogleApiClient.connect();
         }
     }
 
-    /**
-     * Disconnect the {@link PlusClient} only if it is connected (otherwise, it can throw an error.)
-     * This will call back to {@link #onDisconnected()}.
-     */
+
     private void initiatePlusClientDisconnect() {
         if (mGoogleApiClient.isConnected()) {
             mGoogleApiClient.disconnect();

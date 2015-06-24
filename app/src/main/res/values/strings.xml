@@ -19,4 +19,10 @@
     <string name="competiton_default_name">Competition Name 1</string>
     <string name="competition_name_label">Competition Name:</string>
     <string name="competition_save_btn">Save</string>
+    <string name="competitionNameHint">Competition Name</string>
+    <string name="IsCompetitionActive">Is Active</string>
+    <string name="CompetitionEndDate">End Date:</string>
+    <string name="Administrator">Administrator</string>
+    <string name="competitioEndDateHint">End Date</string>
+    <string name="competitionEndTimeHint">End Time</string>
 </resources>

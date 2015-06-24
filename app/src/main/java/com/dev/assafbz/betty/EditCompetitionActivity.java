@@ -1,18 +1,17 @@
 package com.dev.assafbz.betty;
 
-import android.content.Context;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Pair;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.dev.assafbz.betty.backend.competitionApi.model.Competition;
-import com.google.android.gms.common.SignInButton;
 
 
 public class EditCompetitionActivity extends AppCompatActivity {
@@ -22,13 +21,19 @@ public class EditCompetitionActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_competition);
 
-        Button saveBtn = (Button) findViewById(R.id.save_btn);
+        String[] arraySpinner = new String[] {"Assaf"};
+        Spinner administratorSpinner = (Spinner) findViewById(R.id.administratorSpinner);
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
+                android.R.layout.simple_spinner_item, arraySpinner);
+        administratorSpinner.setAdapter(adapter);
+
+        Button saveBtn = (Button) findViewById(R.id.competitioSaveButton);
         saveBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Competition competition = new Competition();
-                competition.setCompetitionName(((TextView)findViewById(R.id.competitionName)).toString());
-                new SaveCompetitionAsyncTask().execute(new Pair<Context, Competition>(EditCompetitionActivity.this.getApplicationContext(), competition));
+                competition.setCompetitionName(((TextView)findViewById(R.id.competitionName)).getText().toString());
+                new SaveCompetitionAsyncTask().execute(new Pair<>(EditCompetitionActivity.this.getApplicationContext(), competition));
             }
         });
     }
