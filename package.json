@@ -1,0 +1,36 @@
+{
+  "name": "betty",
+  "version": "1.0.0",
+  "description": "bet with your friends",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/assafbz/Betty.git"
+  },
+  "keywords": [
+    "bet",
+    "sports",
+    "friends"
+  ],
+  "author": "assafbz",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/assafbz/Betty/issues"
+  },
+  "homepage": "https://github.com/assafbz/Betty#readme",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "cookie-parser": "^1.4.3",
+    "express": "^4.14.0",
+    "express-session": "^1.14.2",
+    "mongoose": "^4.7.3",
+    "passport": "^0.3.2",
+    "passport-facebook": "^2.1.1"
+  }
+}
