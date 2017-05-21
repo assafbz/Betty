@@ -1,0 +1,21 @@
+{
+  "entrypoint": "index.html",
+  "shell": "src/betty-app.html",
+  "fragments": [
+    "src/competitions-view.html",
+    "src/games-view.html",
+    "src/notfound404-view.html"
+  ],
+  "sources": [
+    "src/**/*",
+    "images/**/*",
+    "bower.json"
+  ],
+  "extraDependencies": [
+    "manifest.json",
+    "bower_components/webcomponentsjs/*.js"
+  ],
+  "lint": {
+    "rules": ["polymer-2"]
+  }
+}
