@@ -10,6 +10,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
 <link rel="import" href="../bower_components/polymer/polymer-element.html">
 <link rel="import" href="shared-styles.html">
+<link rel="import" href="../bower_components/app-route/app-location.html">
+<link rel="import" href="../bower_components/paper-card/paper-card.html">
+<link rel="import" href="../bower_components/paper-button/paper-button.html">
+<link rel="import" href="../bower_components/polymerfire/firebase-query.html">
+<link rel="import" href="../bower_components/iron-meta/iron-meta.html">
+
 
 <dom-module id="games-view">
   <template>
@@ -21,17 +27,36 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       }
     </style>
 
-    <div class="card">
-      <div class="circle">2</div>
-      <h1>View Two</h1>
-      <p>Ea duis bonorum nec, falli paulo aliquid ei eum.</p>
-      <p>Id nam odio natum malorum, tibique copiosae expetenda mel ea.Detracto suavitate repudiandae no eum. Id adhuc minim soluta nam.Id nam odio natum malorum, tibique copiosae expetenda mel ea.</p>
-    </div>
+    <app-route
+            route="{{route}}"
+            pattern="/:competition_key"
+            data="{{routeData}}"></app-route>
+
+    <firebase-query
+            app-name="betty-firebase"
+            path="/games/[[routeData.competitionKey]]"
+            data="{{games}}">
+    </firebase-query>
+
+    <h1>{{routeData.competitionKey}}</h1>
+    <template is="dom-repeat" items="{{games}}" as="game">
+      <paper-card heading="{{game.TeamA}}" image="https://img.gawkerassets.com/img/1899so70ey24ajpg/original.jpg" on-click="selectGame">
+        <div class="card-content">No Content</div>
+      </paper-card>
+    </template>
+
   </template>
+
+
 
   <script>
     class GamesView extends Polymer.Element {
       static get is() { return 'games-view'; }
+
+        selectGame(event) {
+            this.selectedGame = event.model.__data.game;
+            this.set('route.path', '/games');
+        }
     }
 
     window.customElements.define(GamesView.is, GamesView);

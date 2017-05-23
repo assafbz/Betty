@@ -9,10 +9,11 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 -->
 
 <link rel="import" href="../bower_components/polymer/polymer-element.html">
-<link rel="import" href="../bower_components/iron-list/iron-list.html">
+<link rel="import" href="../bower_components/app-route/app-location.html">
 <link rel="import" href="../bower_components/paper-card/paper-card.html">
 <link rel="import" href="../bower_components/paper-button/paper-button.html">
 <link rel="import" href="../bower_components/polymerfire/firebase-query.html">
+<link rel="import" href="../bower_components/iron-meta/iron-meta.html">
 <link rel="import" href="shared-styles.html">
 
 <dom-module id="competitions-view">
@@ -36,12 +37,15 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
     </style>
 
+    <app-location route="{{route}}"></app-location>
+
     <firebase-query
-            id="query"
             app-name="betty-firebase"
             path="/competitions"
             data="{{competitions}}">
     </firebase-query>
+
+    <iron-meta key="selectedCompetition" value="{{selectedCompetition}}"></iron-meta>
 
     <template is="dom-repeat" items="{{competitions}}" as="competition">
       <paper-card heading="{{competition.name}}" image="http://seo-takeover.com/wp-content/uploads/2013/09/competition.png" on-click="selectCompetition">
@@ -54,8 +58,16 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     class Competitions extends Polymer.Element {
       static get is() { return 'competitions-view'; }
 
+      static get properties() {
+          return {
+            selectedCompetition: Object
+          }
+      }
+
+
       selectCompetition(event) {
-        console.log(event.model.__data.competition);
+          this.selectedCompetition = event.model.__data.competition;
+          this.set('route.path', '/games/' + this.selectedCompetition.$key);
       }
     }
 
